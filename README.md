@@ -32,8 +32,8 @@ A fully functional blog dashboard built as part of the Urbio Technologies fronte
 
 ```bash
 # Clone the repository
-git clone https://github.com/msayyaf1/blog-urbiotech.git
-cd blog-urbiotech
+git clone https://github.com/msayyaf1/urbio-blog.git
+cd urbio-blog
 
 # Install dependencies
 npm install  # or yarn install
