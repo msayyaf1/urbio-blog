@@ -86,9 +86,9 @@ export default function PostList({ initialPosts }: PostListProps) {
     <Box>
       <Grid container spacing={4} columns={12} >
         {paginatedPosts?.map((post) => (
-          <Grid item key={post.id} xs={12} sm={6} md={6} sx={{ display: 'flex',  }}>
-            <PostCard post={post} />
-          </Grid>
+          <div key={post.id} style={{ display: 'flex', width: '362px', padding: '16px' }}>
+          <PostCard post={post} />
+        </div>
         ))}
       </Grid>
       

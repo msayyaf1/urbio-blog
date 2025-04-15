@@ -3,6 +3,7 @@ import PostList from '@/components/posts/PostList';
 import { getPosts } from '@/services/postsApi';
 import { store } from '@/lib/redux/store';
 import type { RootState } from '@/lib/redux/store';
+import { Suspense } from 'react';
 
 export default async function PostsPage() {
   // fetch posts on the server
@@ -22,8 +23,9 @@ export default async function PostsPage() {
           Browse our latest articles and insights
         </Typography>
       </Box>
-      
+      <Suspense fallback={<div>Loading posts...</div>}>
       <PostList initialPosts={initialPosts} />
+      </Suspense>
     </Box>
   );
 }

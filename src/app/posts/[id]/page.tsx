@@ -6,13 +6,17 @@ import { notFound } from 'next/navigation';
 import type { RootState } from '@/lib/redux/store';
 
 interface PostDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
-export default async function PostDetailPage({ params }: PostDetailPageProps) {
-  const id = params.id;
+export default async function PostDetailPage({ 
+  params,
+}: PostDetailPageProps) {
+  // await the params before accessing properties
+  const resolvedParams = await params;
+  const id = resolvedParams.id;
   
   // to fetch the post on the server
   try {
