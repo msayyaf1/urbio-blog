@@ -3,6 +3,7 @@ import PostDetail from '@/components/posts/PostDetail';
 import { getPostById } from '@/services/postsApi';
 import { store } from '@/lib/redux/store';
 import { notFound } from 'next/navigation';
+import type { RootState } from '@/lib/redux/store';
 
 interface PostDetailPageProps {
   params: {
@@ -16,7 +17,7 @@ export default async function PostDetailPage({ params }: PostDetailPageProps) {
   // to fetch the post on the server
   try {
     await store.dispatch(getPostById.initiate(id));
-    const postResult = getPostById.select(id)(store.getState() as any);
+    const postResult = getPostById.select(id)(store.getState() as RootState);
     const initialPost = postResult.data;
     
     // if post not found, render 404
